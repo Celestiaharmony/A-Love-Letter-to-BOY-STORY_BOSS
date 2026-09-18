@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenangan yang Terus Berjalan — Boy Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="lang-switch">
+    <button data-setlang="id" class="active">ID</button>
+    <button data-setlang="en">EN</button>
+    <button data-setlang="ko">한국어</button>
+    <button data-setlang="zh">中文</button>
+  </div>
+</section>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <h1>
+    <span data-lang="id">Kenangan yang Terus Berjalan</span>
+    <span data-lang="en">Memories that keep moving, even on different paths</span>
+    <span data-lang="ko">길이 달라져도 계속 이어지는 기억들</span>
+    <span data-lang="zh">即使道路不同,回忆依然延续</span>
+  </h1>
+
+  <p>
+    <span data-lang="id"><span class="hero-years" data-yeartext="id">8</span> tahun perjalanan BOY STORY telah menyatukan banyak orang dari berbagai negara, bahasa, dan latar belakang. Ada yang mengenal mereka sejak awal, ada yang menemukan mereka di tengah perjalanan, dan ada yang baru saja menjadi bagian dari cerita ini. Website ini dibuat untuk menyimpan pesan, rasa terima kasih, dan kenangan yang pernah dibagikan bersama BOY STORY — sebuah arsip kecil yang akan terus tumbuh selama masih ada cerita untuk dibagikan.</span>
+    <span data-lang="en"><span class="hero-years" data-yeartext="en">8</span> years of BOY STORY's journey have brought together people from many countries, languages, and backgrounds. Some have known them from the start, some found them along the way, and some have just become part of this story. This site was made to keep the messages, gratitude, and memories shared with BOY STORY — a small archive that keeps growing as long as there are stories to share.</span>
+    <span data-lang="ko"><span class="hero-years" data-yeartext="ko">8</span>년 동안 BOY STORY의 여정은 다양한 나라, 언어, 배경을 가진 많은 사람들을 하나로 모았습니다. 처음부터 함께한 사람도, 여정 중간에 만난 사람도, 이제 막 이 이야기의 일부가 된 사람도 있습니다. 이 사이트는 BOY STORY와 함께 나눈 메시지, 감사, 그리고 기억을 간직하기 위해 만들어졌습니다 — 나눌 이야기가 있는 한 계속 자라나는 작은 기록입니다.</span>
+    <span data-lang="zh"><span class="hero-years" data-yeartext="zh">8</span>年的旅程,BOY STORY 将来自不同国家、语言与背景的人们联系在一起。有人从一开始就认识他们,有人在途中遇见他们,也有人刚刚成为这个故事的一部分。这个网站是为了保存与 BOY STORY 一起分享的留言、感谢与回忆而建——一个只要还有故事可以分享,就会持续成长的小小档案。</span>
+  </p>
+
+  <p style="margin-top:0.6rem; font-style:italic; font-size:0.95rem;">[1 kalimat singkat & jujur dari kamu — boleh cuma 1 bahasa saja]</p>
+
+  <p class="asal-usul">
+    <span data-lang="id">Dimulai di peringatan tahun ke-8 BOY STORY (2026) · terus tumbuh setiap tahun</span>
+    <span data-lang="en">Started on BOY STORY's 8th anniversary (2026) · growing every year since</span>
+    <span data-lang="ko">BOY STORY 데뷔 8주년(2026년)에 시작 · 매년 계속 자라나는 중</span>
+    <span data-lang="zh">始于 BOY STORY 出道 8 周年(2026 年)· 此后每年持续成长</span>
+  </p>
+
+  <div class="="hero-media">
+  <img
+  src="assets/hero-boy-story.jpg"
+  alt="BOY STORY"
+  >
+  </div>
+  <div class="thread"></div>
+</section>
+
+<!-- ============ COUNTER ============ -->
+<section id="counter">
+  <div class="counter-card">
+    <div class="counter-item">
+      <div class="counter-num" id="count-stories">–</div>
+      <div class="counter-label">
+        💌 <span data-lang="id">Cerita</span><span data-lang="en">Stories</span><span data-lang="ko">이야기</span><span data-lang="zh">故事</span>
+      </div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" id="count-countries">–</div>
+      <div class="counter-label">
+        🌍 <span data-lang="id">Negara</span><span data-lang="en">Countries</span><span data-lang="ko">국가</span><span data-lang="zh">国家</span>
+      </div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num">6</div>
+      <div class="counter-label">
+        ❤️ <span data-lang="id">Anggota</span><span data-lang="en">Members</span><span data-lang="ko">멤버</span><span data-lang="zh">成员</span>
+      </div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" id="count-years">–</div>
+      <div class="counter-label">
+        📅 <span data-lang="id">Tahun Berjalan</span><span data-lang="en">Years Running</span><span data-lang="ko">함께한 시간</span><span data-lang="zh">陪伴的年数</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LINIMASA ============ -->
+<section id="linimasa">
+  <div class="section-head">
+    <div class="eyebrow">
+      <span data-lang="id">Linimasa</span><span data-lang="en">Timeline</span><span data-lang="ko">타임라인</span><span data-lang="zh">时间线</span>
+    </div>
+    <h2>
+      <span data-lang="id">Perjalanan dari waktu ke waktu</span>
+      <span data-lang="en">A journey through time</span>
+      <span data-lang="ko">시간 속을 걸어온 여정</span>
+      <span data-lang="zh">穿越时光的旅程</span>
+    </h2>
+  </div>
+
+  <p class="section-intro" data-lang="id">Setiap perjalanan memiliki awal, tetapi tidak semua awal langsung terlihat. Sebelum BOY STORY berdiri di atas panggung sebagai satu grup, ada seseorang yang lebih dulu mengambil langkah, ada pencarian yang mempertemukan para anggota, dan ada proses panjang yang perlahan membentuk sebuah cerita.</p>
+  <p class="section-intro" data-lang="en">Every journey has a beginning, though not every beginning is visible right away. Before BOY STORY stood on stage as one group, someone took the first step, a search brought the members together, and a long process slowly shaped a story.</p>
+  <p class="section-intro" data-lang="ko">모든 여정에는 시작이 있지만, 그 시작이 처음부터 눈에 보이는 것은 아닙니다. BOY STORY가 하나의 그룹으로 무대에 서기 전, 누군가 먼저 첫걸음을 내디뎠고, 멤버들을 하나로 모은 탐색이 있었으며, 긴 과정을 거쳐 하나의 이야기가 서서히 만들어졌습니다.</p>
+  <p class="section-intro" data-lang="zh">每一段旅程都有开始,但并非每个开始都能一眼看见。在 BOY STORY 作为一个团体站上舞台之前,有人先迈出了第一步,有一场寻找将成员们聚集在一起,也有一段漫长的过程慢慢塑造了这个故事。</p>
+
+  <div class="timeline">
+
+    <!-- ===== ERA 2016-2017 — sebelum debut ===== -->
+    <div class="era">
+      <div class="year">2016 – 2017</div>
+      <h3>
+        <span data-lang="id">Sebelum menjadi BOY STORY</span>
+        <span data-lang="en">Before becoming BOY STORY</span>
+        <span data-lang="ko">BOY STORY가 되기 전</span>
+        <span data-lang="zh">在成为 BOY STORY 之前</span>
+      </h3>
+      <p data-lang="id">Sebelum menjadi BOY STORY, perjalanan ini dimulai dari langkah Zeyu sebagai anggota pertama yang bergabung dengan JYP. Setelah itu, pencarian anggota lain mempertemukan enam anak muda yang perlahan membentuk sebuah grup dan memulai perjalanan mereka bersama.</p>
+      <p data-lang="en">Before becoming BOY STORY, this journey began with Zeyu, the first member to join JYP. Afterward, the search for other members brought six young people together, who slowly formed a group and began their journey as one.</p>
+      <p data-lang="ko">BOY STORY가 되기 전, 이 여정은 JYP에 처음 합류한 멤버인 제위(Zeyu)로부터 시작되었습니다. 이후 다른 멤버들을 찾는 과정을 통해 여섯 명의 젊은이들이 만나게 되었고, 서서히 하나의 그룹을 이루며 함께 여정을 시작했습니다.</p>
+      <p data-lang="zh">在成为 BOY STORY 之前,这段旅程始于泽宇——第一位加入 JYP 的成员。此后,寻找其他成员的过程让六位年轻人相遇,他们慢慢组成了一个团体,一同开始了这段旅程。</p>
+
+      <div class="doc-note">
+        <span data-lang="id">Catatan dokumenter: video resmi dipublikasikan kemudian oleh kanal BOY STORY. Tanggal publikasi tidak selalu sama dengan waktu kejadian.</span>
+        <span data-lang="en">Documentary note: the official video was published later by BOY STORY's channel. The publish date doesn't always match when it actually happened.</span>
+        <span data-lang="ko">다큐멘터리 노트: 공식 영상은 BOY STORY 채널을 통해 나중에 공개되었습니다. 공개일이 실제 사건 발생 시점과 항상 일치하는 것은 아닙니다.</span>
+        <span data-lang="zh">纪录说明:官方视频由 BOY STORY 频道后续发布。发布日期不一定与事件实际发生的时间相同。</span>
+      </div>
+
+      <p data-lang="id">Sebelum debut resmi, BOY STORY diperkenalkan melalui rangkaian <em>Real! Project</em>. Lagu-lagu seperti "How Old R U", "Can't Stop", "Jump Up", dan "Handz Up" menjadi langkah-langkah awal yang memperlihatkan warna mereka kepada publik — rangkaian ini terasa seperti bab pembuka, belum menjadi titik akhir, tetapi sudah memberi gambaran tentang perjalanan yang sedang dimulai.</p>
+      <p data-lang="en">Before their official debut, BOY STORY were introduced through the <em>Real! Project</em> series. Songs like "How Old R U," "Can't Stop," "Jump Up," and "Handz Up" were the first steps that showed their colors to the public — this series felt like an opening chapter, not yet the ending, but already offering a glimpse of the journey that was beginning.</p>
+      <p data-lang="ko"><em>Real! Project</em> 시리즈를 통해 BOY STORY는 공식 데뷔 전 대중에게 처음 소개되었습니다. "How Old R U", "Can't Stop", "Jump Up", "Handz Up" 같은 곡들은 그들의 색깔을 세상에 보여준 첫걸음이었습니다 — 이 시리즈는 마치 이야기의 서장과도 같았고, 아직 끝이 아니었지만 이제 막 시작되는 여정의 모습을 보여주었습니다.</p>
+      <p data-lang="zh">在正式出道之前,BOY STORY 通过《<em>Real! Project</em>》系列首次与大众见面。《How Old R U》《Can't Stop》《Jump Up》《Handz Up》等歌曲是他们向公众展现自我色彩的第一步——这个系列更像是故事的序章,还未到终点,却已经勾勒出一段正在展开的旅程。</p>
+
+      <div class="kutipan">[Satu kalimat personal — apa yang kamu rasakan saat pertama lihat momen ini]</div>
+
+      <ul class="era-moments">
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">
+          <span data-lang="id">Zeyu bergabung dengan JYP</span>
+          <span data-lang="en">Zeyu joins JYP</span>
+          <span data-lang="ko">제위, JYP 합류</span>
+          <span data-lang="zh">泽宇加入 JYP</span>
+        </span></li>
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">
+          <span data-lang="id">Rilis Real! Project — "How Old R U"</span>
+          <span data-lang="en">Real! Project release — "How Old R U"</span>
+          <span data-lang="ko">Real! Project 발매 — "How Old R U"</span>
+          <span data-lang="zh">Real! Project 发布 — 《How Old R U》</span>
+        </span></li>
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">
+          <span data-lang="id">Rilis Real! Project — "Can't Stop" / "Jump Up" / "Handz Up"</span>
+          <span data-lang="en">Real! Project release — "Can't Stop" / "Jump Up" / "Handz Up"</span>
+          <span data-lang="ko">Real! Project 발매 — "Can't Stop" / "Jump Up" / "Handz Up"</span>
+          <span data-lang="zh">Real! Project 发布 — 《Can't Stop》/《Jump Up》/《Handz Up》</span>
+        </span></li>
+      </ul>
+
+      <div class="memory-drop">
+        <div class="md-label">Memory Drop</div>
+        <p>[Sebuah potongan kecil dari perjalanan yang ingin kamu simpan di sini: momen, foto, atau pesan yang membantu menjaga kenangan tetap hidup.]</p>
+      </div>
+
+      <div class="era-highlight">
+        <!-- ⬇️ LINK #1: ganti VIDEO_ID dengan ID video YouTube asli (opsional, kalau mau pakai video, bukan foto) -->
+        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+        <div class="placeholder">momen paling berkesan<br>[ganti dengan foto/embed]</div>
+      </div>
+
+      <div class="era-social">
+        <!-- ⬇️ LINK #2, #3, #4: link YouTube/IG/Spotify BOY STORY untuk era ini -->
+        <a href="GANTI_LINK_YOUTUBE_2017" target="_blank">▶ YouTube</a>
+        <a href="GANTI_LINK_IG_2017" target="_blank">📷 Instagram</a>
+        <a href="GANTI_LINK_SPOTIFY_2017" target="_blank">🎵 Spotify</a>
+      </div>
+
+      <!-- ⬇️ LINK #5: link ke album foto/video lengkap era ini (Google Photos/Drive) -->
+      <a class="album-link" href="GANTI_DENGAN_LINK_ALBUM_2017" target="_blank">
+        <span data-lang="id">Lihat momen lainnya dari 2016–2017 →</span>
+        <span data-lang="en">See more moments from 2016–2017 →</span>
+        <span data-lang="ko">2016–2017년의 더 많은 순간 보기 →</span>
+        <span data-lang="zh">查看 2016–2017 年更多瞬间 →</span>
+      </a>
+      <div class="source-note">Sumber: Wikipedia, kanal resmi BOY STORY · [tambahkan sumber lain yang kamu pakai]</div>
+    </div>
+
+    <!-- ===== ERA 2018 — debut ===== -->
+    <div class="era">
+      <div class="year">2018</div>
+      <h3>
+        <span data-lang="id">21 September 2018 — Official Debut</span>
+        <span data-lang="en">September 21, 2018 — Official Debut</span>
+        <span data-lang="ko">2018년 9월 21일 — 공식 데뷔</span>
+        <span data-lang="zh">2018年9月21日 — 正式出道</span>
+      </h3>
+      <p data-lang="id">Pada 21 September 2018, perjalanan yang selama ini dibangun melalui latihan, pencarian, dan masa pra-debut akhirnya memiliki sebuah nama di atas panggung: BOY STORY. Debut melalui <em>Enough</em> bukan hanya menandai dimulainya karier mereka, tetapi juga menjadi bukti bahwa langkah-langkah kecil sebelumnya telah membawa mereka sampai ke titik ini. Dari hari itu, cerita mereka tidak lagi hanya tentang persiapan, melainkan tentang tumbuh, bermimpi, dan berjalan bersama BOSS.</p>
+      <p data-lang="en">On September 21, 2018, the journey built through training, the search for members, and the pre-debut years finally had a name on stage: BOY STORY. Their debut with <em>Enough</em> didn't just mark the start of their career — it was proof that every small step before had carried them to this point. From that day on, their story was no longer just about preparation, but about growing, dreaming, and walking forward together with BOSS.</p>
+      <p data-lang="ko">2018년 9월 21일, 연습과 멤버 찾기, 그리고 데뷔 전 시간을 통해 쌓아온 여정이 마침내 무대 위에서 하나의 이름을 갖게 되었습니다: BOY STORY. <em>Enough</em>로의 데뷔는 그들의 커리어가 시작되었음을 알리는 것을 넘어, 이전의 작은 발걸음들이 이 순간까지 그들을 이끌어왔다는 증거이기도 했습니다. 그날 이후 그들의 이야기는 더 이상 준비의 시간이 아니라, BOSS와 함께 성장하고 꿈꾸며 걸어가는 시간이 되었습니다.</p>
+      <p data-lang="zh">2018年9月21日,历经训练、成员招募与出道前岁月所积累的旅程,终于在舞台上拥有了一个名字:BOY STORY。以《<em>Enough</em>》出道,不仅标志着他们事业的开始,也证明了此前的每一小步都将他们带到了这一刻。从那天起,他们的故事不再只是准备,而是与 BOSS 一同成长、追梦、并肩前行。</p>
+
+      <div class="kutipan">[Kutipan personal — apa yang kamu rasakan waktu tahu mereka akhirnya debut]</div>
+
+      <ul class="era-moments">
+        <li><span class="moment-month">21 Sep</span><span class="moment-text">
+          <span data-lang="id">Debut resmi lewat mini album "Enough"</span>
+          <span data-lang="en">Official debut with mini album "Enough"</span>
+          <span data-lang="ko">미니앨범 "Enough"로 공식 데뷔</span>
+          <span data-lang="zh">以迷你专辑《Enough》正式出道</span>
+        </span></li>
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">[Momen lain di tahun 2018 kalau ada]</span></li>
+      </ul>
+
+      <div class="era-highlight">
+        <div class="placeholder">momen paling berkesan<br>[ganti dengan foto/embed]</div>
+      </div>
+
+      <div class="era-social">
+        <!-- ⬇️ LINK #6, #7, #8 -->
+        <a href="GANTI_LINK_YOUTUBE_2018" target="_blank">▶ YouTube</a>
+        <a href="GANTI_LINK_IG_2018" target="_blank">📷 Instagram</a>
+        <a href="GANTI_LINK_SPOTIFY_2018" target="_blank">🎵 Spotify</a>
+      </div>
+
+      <!-- ⬇️ LINK #9 -->
+      <a class="album-link" href="GANTI_DENGAN_LINK_ALBUM_2018" target="_blank">
+        <span data-lang="id">Lihat momen lainnya dari 2018 →</span>
+        <span data-lang="en">See more moments from 2018 →</span>
+        <span data-lang="ko">2018년의 더 많은 순간 보기 →</span>
+        <span data-lang="zh">查看 2018 年更多瞬间 →</span>
+      </a>
+      <div class="source-note">Sumber: Wikipedia, MV resmi "Enough" · [tambahkan sumber lain]</div>
+    </div>
+
+    <!-- ===== ERA 2019–2023 — perkembangan per tahun ===== -->
+    <div class="era">
+      <div class="year">2019 – 2023</div>
+      <h3>[Judul era — misal: comeback, album, atau pertumbuhan]</h3>
+      <p>[Fakta utama tahun ini beserta tautan resmi. Kalau tidak ada momen besar di tahun tertentu, pakai kalimat: "Tahun ini tidak ditandai oleh satu perubahan besar, tetapi tetap menjadi bagian dari perjalanan mereka. Di antara rilisan dan aktivitas yang tersedia, BOY STORY terus bertumbuh dan menjaga hubungan dengan BOSS melalui konten serta komunikasi resmi."]</p>
+
+      <div class="kutipan">[Kutipan personal untuk fase ini]</div>
+
+      <ul class="era-moments">
+        <li><span class="moment-month">[Bulan, Tahun]</span><span class="moment-text">[Momen 1 — album/comeback/kolaborasi]</span></li>
+        <li><span class="moment-month">[Bulan, Tahun]</span><span class="moment-text">[Momen 2]</span></li>
+        <li><span class="moment-month">[Bulan, Tahun]</span><span class="moment-text">[Momen 3 kalau ada]</span></li>
+      </ul>
+
+      <div class="era-highlight">
+        <div class="placeholder">momen paling berkesan<br>[ganti dengan foto/embed]</div>
+      </div>
+
+      <div class="era-social">
+        <!-- ⬇️ LINK #10, #11, #12 -->
+        <a href="GANTI_LINK_YOUTUBE_2019_2023" target="_blank">▶ YouTube</a>
+        <a href="GANTI_LINK_IG_2019_2023" target="_blank">📷 Instagram</a>
+        <a href="GANTI_LINK_SPOTIFY_2019_2023" target="_blank">🎵 Spotify</a>
+      </div>
+
+      <!-- ⬇️ LINK #13 -->
+      <a class="album-link" href="GANTI_DENGAN_LINK_ALBUM_2019_2023" target="_blank">
+        <span data-lang="id">Lihat momen lainnya dari 2019–2023 →</span>
+        <span data-lang="en">See more moments from 2019–2023 →</span>
+        <span data-lang="ko">2019–2023년의 더 많은 순간 보기 →</span>
+        <span data-lang="zh">查看 2019–2023 年更多瞬间 →</span>
+      </a>
+      <div class="source-note">Sumber: [nama akun/kredit asli]</div>
+    </div>
+
+    <!-- ===== ERA 2024 — Boys Planet / survival show ===== -->
+    <div class="era">
+      <div class="year">2024 — Boys Planet</div>
+      <h3>Tiga anggota, satu panggung baru</h3>
+      <p>Pada fase berikutnya, beberapa anggota mengambil kesempatan untuk tampil dalam program survival dan memperluas pengalaman mereka di panggung. Keputusan ini menjadi bagian penting dalam perjalanan individu mereka, sekaligus memperlihatkan bagaimana setiap anggota terus mencari ruang untuk berkembang.</p>
+
+      <div class="kutipan">[Kutipan personal — bagaimana rasanya menyaksikan mereka di panggung ini]</div>
+
+      <ul class="era-moments">
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">[Episode/momen tayang tertentu]</span></li>
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">[Momen eliminasi/hasil, dll]</span></li>
+      </ul>
+
+      <div class="era-highlight">
+        <div class="placeholder">momen paling berkesan<br>[ganti dengan foto/embed]</div>
+      </div>
+
+      <div class="era-social">
+        <!-- ⬇️ LINK #14, #15, #16 -->
+        <a href="GANTI_LINK_YOUTUBE_2024" target="_blank">▶ YouTube</a>
+        <a href="GANTI_LINK_IG_2024" target="_blank">📷 Instagram</a>
+        <a href="GANTI_LINK_SPOTIFY_2024" target="_blank">🎵 Spotify</a>
+      </div>
+
+      <!-- ⬇️ LINK #17 -->
+      <a class="album-link" href="GANTI_DENGAN_LINK_ALBUM_2024" target="_blank">
+        <span data-lang="id">Lihat momen lainnya dari Boys Planet →</span>
+        <span data-lang="en">See more moments from Boys Planet →</span>
+        <span data-lang="ko">Boys Planet의 더 많은 순간 보기 →</span>
+        <span data-lang="zh">查看 Boys Planet 更多瞬间 →</span>
+      </a>
+      <div class="source-note">Sumber: [nama akun/kredit asli]</div>
+    </div>
+
+    <!-- ===== ERA 2025 — sekarang ===== -->
+    <div class="era">
+      <div class="year">2025 — sekarang</div>
+      <h3>Jalan yang berbeda, cerita yang sama</h3>
+      <p>[Ceritakan kondisi masing-masing anggota sekarang: yang debut di grup baru, yang di band, yang fokus kuliah. Tulis dengan hangat, bukan berlebihan. Untuk hal-hal pribadi/sensitif, jangan dimasukkan kecuali ada pernyataan resmi dari member atau sumber resmi.]</p>
+
+      <div class="kutipan">[Kutipan personal — apa harapanmu untuk mereka di jalan masing-masing]</div>
+
+      <ul class="era-moments">
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">[Kabar member A — misal: debut grup baru]</span></li>
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">[Kabar member B — misal: rilis dengan band]</span></li>
+        <li><span class="moment-month">[Bulan]</span><span class="moment-text">[Kabar member lainnya]</span></li>
+      </ul>
+
+      <div class="era-highlight">
+        <div class="placeholder">momen paling berkesan<br>[ganti dengan foto/embed]</div>
+      </div>
+
+      <div class="era-social">
+        <!-- ⬇️ LINK #18, #19, #20 -->
+        <a href="GANTI_LINK_YOUTUBE_2025" target="_blank">▶ YouTube</a>
+        <a href="GANTI_LINK_IG_2025" target="_blank">📷 Instagram</a>
+        <a href="GANTI_LINK_SPOTIFY_2025" target="_blank">🎵 Spotify</a>
+      </div>
+
+      <!-- ⬇️ LINK #21 -->
+      <a class="album-link" href="GANTI_DENGAN_LINK_ALBUM_2025" target="_blank">
+        <span data-lang="id">Lihat momen lainnya dari 2025 →</span>
+        <span data-lang="en">See more moments from 2025 →</span>
+        <span data-lang="ko">2025년의 더 많은 순간 보기 →</span>
+        <span data-lang="zh">查看 2025 年更多瞬间 →</span>
+      </a>
+      <div class="source-note">Sumber: [nama akun/kredit asli]</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SUARA FANS / WALL PESAN ============ -->
+<section id="suara-fans">
+  <div class="section-head">
+    <div class="eyebrow">
+      <span data-lang="id">Suara Kita</span><span data-lang="en">Our Voices</span><span data-lang="ko">우리의 목소리</span><span data-lang="zh">我们的声音</span>
+    </div>
+    <h2>
+      <span data-lang="id">Pesan dari yang masih mengingat</span>
+      <span data-lang="en">Messages from those who still remember</span>
+      <span data-lang="ko">아직 기억하는 이들의 메시지</span>
+      <span data-lang="zh">仍然记得的人们留下的话语</span>
+    </h2>
+  </div>
+
+  <p class="section-intro">
+    <span data-lang="id">Pesan-pesan ini datang dari berbagai negara, bahasa, dan waktu yang berbeda. Ada yang panjang, ada yang sederhana — tetapi semuanya menyimpan satu hal yang sama: rasa terima kasih karena BOY STORY pernah hadir dalam perjalanan hidup mereka.</span>
+    <span data-lang="en">These messages come from different countries, languages, and times. Some are long, some are simple — but they all carry one thing in common: gratitude that BOY STORY was once part of their journey.</span>
+    <span data-lang="ko">이 메시지들은 서로 다른 나라, 언어, 시간에서 왔습니다. 길게 쓴 것도, 짧게 쓴 것도 있지만, 모두 한 가지 마음을 담고 있습니다 — BOY STORY가 자신의 여정에 함께해줘서 고맙다는 마음입니다.</span>
+    <span data-lang="zh">这些留言来自不同的国家、语言与时刻。有的很长,有的很简单——但都承载着同一份心意:感谢 BOY STORY 曾经出现在他们的人生旅程中。</span>
+  </p>
+
+  <div class="wall-grid" id="wall-grid">
+    <div class="fan-card theme-blue">
+      <div class="country">Contoh — Indonesia</div>
+      <div class="message">"[Contoh pesan fans akan tampil di sini setelah data asli terhubung]"</div>
+      <div class="song">Lagu favorit: [judul lagu]</div>
+    </div>
+    <div class="fan-card theme-pink">
+      <div class="country">Contoh — Malaysia</div>
+      <div class="message">"[Contoh pesan lain]"</div>
+      <div class="song">Lagu favorit: [judul lagu]</div>
+    </div>
+    <div class="fan-card theme-lavender">
+      <div class="country">Contoh — Brazil</div>
+      <div class="message">"[Contoh pesan lain]"</div>
+      <div class="song">Lagu favorit: [judul lagu]</div>
+    </div>
+  </div>
+
+  <div id="wall-status">
+    <span data-lang="id">Menunggu data terhubung — lihat catatan di script.js untuk langkah menyambungkan Google Form.</span>
+    <span data-lang="en">Waiting to connect — see the notes in script.js for the steps to link the Google Form.</span>
+    <span data-lang="ko">연결을 기다리는 중입니다 — 구글 폼 연동 방법은 script.js 주석을 참고하세요.</span>
+    <span data-lang="zh">尚未连接数据——请查看 script.js 注释了解如何连接 Google 表单。</span>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="eyebrow">
+    <span data-lang="id">Masih ingin bercerita?</span>
+    <span data-lang="en">Still want to share your story?</span>
+    <span data-lang="ko">아직 나누고 싶은 이야기가 있나요?</span>
+    <span data-lang="zh">还想分享你的故事吗?</span>
+  </div>
+  <p>
+    <span data-lang="id">Selama masih ada kenangan yang ingin dibagikan, cerita ini akan terus berjalan bersama kita.</span>
+    <span data-lang="en">As long as there are memories worth sharing, this story keeps moving forward with us.</span>
+    <span data-lang="ko">나눌 기억이 있는 한, 이 이야기는 우리와 함께 계속 나아갈 것입니다.</span>
+    <span data-lang="zh">只要还有值得分享的回忆,这个故事就会与我们一起继续前行。</span>
+  </p>
+  <!-- ⬇️ LINK #22: link Google Form kamu -->
+  <a class="form-link" href="GANTI_DENGAN_LINK_GOOGLE_FORM" target="_blank">
+    <span data-lang="id">Isi Google Form →</span>
+    <span data-lang="en">Fill the Google Form →</span>
+    <span data-lang="ko">구글 폼 작성하기 →</span>
+    <span data-lang="zh">填写谷歌表单 →</span>
+  </a><br>
+  <!-- ⬇️ LINK #23: link Website 1 kamu (yang sudah publish di GitHub Pages) -->
+  <a class="cta" href="https://celestiaharmony.github.io/A-Love-Letter-to-BOY-STORY/">
+    <span data-lang="id">Kembali ke Website 1</span>
+    <span data-lang="en">Back to Website 1</span>
+    <span data-lang="ko">웹사이트 1로 돌아가기</span>
+    <span data-lang="zh">返回网站一</span>
+  </a>
+</footer>
+
+<div class="colophon">
+  <span data-lang="id">Dibuat dengan cinta oleh [nama/tim kamu] · [tahun] · Fan project tidak resmi, tidak berafiliasi dengan JYP Entertainment atau BOY STORY.</span>
+  <span data-lang="en">Made with love by [your name/team] · [year] · Unofficial fan project, not affiliated with JYP Entertainment or BOY STORY.</span>
+  <span data-lang="ko">[이름/팀]이 사랑을 담아 제작 · [연도] · 비공식 팬 프로젝트이며 JYP Entertainment 및 BOY STORY와 관련이 없습니다.</span>
+  <span data-lang="zh">由 [名字/团队] 用心制作 · [年份] · 非官方粉丝企划,与 JYP Entertainment 及 BOY STORY 无关。</span>
+</div>
+
+<dialog id="fan-dialog">
+  <div class="fan-paper">
+    <button
+    class="fan-dialog-close"
+    type="button"
+    aria-label="Tutup pesan"
+    >
+  x
+</button>
+
+  </div id="dialog-content"></div>
+</div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
+

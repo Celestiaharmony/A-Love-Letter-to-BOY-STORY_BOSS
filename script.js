@@ -138,14 +138,25 @@ function openFanDialog(row) {
     document.createElement("div");
 
   meta.className = "dialog-meta";
-  meta.textContent = [
-    row["Country of origin"],
+
+  const metaValues = [
+    row["Country of origin"]
+      ? { icon: "🌍", text: row["Country of origin"] }
+      : null,
     row["Favorite member"]
-      ? `Favorite member: ${row["Favorite member"]}`
-      : ""
-  ]
-    .filter(Boolean)
-    .join(" · ");
+      ? { icon: "❤️", text: row["Favorite member"] }
+      : null
+  ].filter(Boolean);
+
+  metaValues.forEach(item => {
+    const pill =
+      document.createElement("span");
+
+    pill.className = "meta-pill";
+    pill.textContent = `${item.icon} ${item.text}`;
+
+    meta.appendChild(pill);
+  });
 
   content.append(nickname, meta);
 
@@ -155,6 +166,11 @@ function openFanDialog(row) {
       .toLowerCase() === "yes" &&
     row["Upload photo"]
   ) {
+    const photoFrame =
+      document.createElement("div");
+
+    photoFrame.className = "dialog-photo-frame";
+
     const image =
       document.createElement("img");
 
@@ -163,56 +179,88 @@ function openFanDialog(row) {
     image.alt =
       `Photo from ${row["Nickname"] || "fan"}`;
 
-    content.appendChild(image);
+    photoFrame.appendChild(image);
+    content.appendChild(photoFrame);
   }
+
+  addDialogDivider(content);
 
   addDialogSection(
     content,
     "How they first knew BOY STORY",
     row[
       "When and how did you first get to know BOY STORY?"
-    ]
+    ],
+    "✨"
   );
 
   addDialogSection(
     content,
     "Favorite moment or song",
-    row["Favorite moment or song"]
+    row["Favorite moment or song"],
+    "🎵"
   );
 
   addDialogSection(
     content,
     "Message for BOY STORY",
-    row["Message for BOY STORY"]
+    row["Message for BOY STORY"],
+    "💌",
+    "quote"
   );
 
   addDialogSection(
     content,
     "Message for certain members",
-    row["Message for certain members"]
+    row["Message for certain members"],
+    "💬"
   );
 
   addDialogSection(
     content,
     "Free extras",
-    row["Free extras"]
+    row["Free extras"],
+    "🎁"
   );
 
   dialog.showModal();
+
+  const fanPaper =
+    document.querySelector(".fan-paper");
+
+  if (fanPaper) {
+    fanPaper.classList.remove("fan-paper-anim");
+    void fanPaper.offsetWidth;
+    fanPaper.classList.add("fan-paper-anim");
+  }
 }
 
-function addDialogSection(container, title, text) {
+function addDialogDivider(container) {
+  const divider =
+    document.createElement("div");
+
+  divider.className = "dialog-divider";
+  container.appendChild(divider);
+}
+
+function addDialogSection(container, title, text, icon, variant) {
   if (!text) return;
 
   const section =
     document.createElement("section");
 
-  section.className = "dialog-section";
+  section.className = variant
+    ? `dialog-section dialog-section--${variant}`
+    : "dialog-section";
 
   const heading =
     document.createElement("h4");
 
-  heading.textContent = title;
+  if (icon) {
+    heading.textContent = `${icon} ${title}`;
+  } else {
+    heading.textContent = title;
+  }
 
   const paragraph =
     document.createElement("p");
@@ -335,60 +383,31 @@ async function loadFanWall() {
           ? `Favorite moment/song: ${row["Favorite moment or song"]}`
           : "";
 
-      const detail =
-        document.createElement("div");
-
-      detail.className = "fan-detail";
-      detail.hidden = true;
-
-      const firstStory =
-        document.createElement("p");
-
-      firstStory.textContent =
-        row[
-          "When and how did you first get to know BOY STORY?"
-        ] || "";
-
-      const memberMessage =
-        document.createElement("p");
-
-      memberMessage.textContent =
-        row["Message for certain members"] || "";
-
-      const extras =
-        document.createElement("p");
-
-      extras.textContent =
-        row["Free extras"] || "";
-
-      detail.append(
-        firstStory,
-        memberMessage,
-        extras
-      );
-
-      const readMore =
-        document.createElement("button");
-
-      readMore.type = "button";
-      readMore.className = "read-more";
-      readMore.textContent = "Read more →";
-
-      readMore.addEventListener("click", () => {
-        detail.hidden = !detail.hidden;
-
-       const detail =
-       document.createElement("div");
-
       card.append(
         nickname,
         country,
         member,
         message,
-        favorite,
-        readMore,
-        detail
+        favorite
       );
+
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute(
+        "aria-label",
+        "Buka pesan lengkap"
+      );
+
+      card.addEventListener("click", () => {
+        openFanDialog(row);
+      });
+
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openFanDialog(row);
+        }
+      });
 
       grid.appendChild(card);
     });
@@ -407,11 +426,6 @@ async function loadFanWall() {
     }
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  initLangSwitch();
-  loadFanWall();
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   initLangSwitch();

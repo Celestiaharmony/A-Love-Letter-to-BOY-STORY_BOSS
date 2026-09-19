@@ -149,26 +149,49 @@ a { color: inherit; }
 #counter{ padding: 4vh 6vw 2vh; }
 
 .counter-card{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.3rem 0.4rem;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   max-width: 620px;
+  width: 100%;
   margin: 0 auto;
-  padding: 1.1rem 0.5rem;
+  padding: 1rem 0.6rem;
+}
+
+@media (min-width: 640px){
+  .counter-card{
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .counter-item{
-  flex: 1 1 0;
-  min-width: 90px;
+  min-width: 0;
   text-align: center;
-  padding: 0.5rem 0.6rem;
+  padding: 0.6rem 0.4rem;
+}
+
+.counter-item:nth-child(2n){
   border-left: 1px dashed var(--line);
 }
 
-.counter-item:first-child{ border-left: none; }
+.counter-item:nth-child(n+3){
+  border-top: 1px dashed var(--line);
+}
+
+@media (min-width: 640px){
+  .counter-item{
+    border-top: none !important;
+  }
+  .counter-item:nth-child(2n){
+    border-left: none;
+  }
+  .counter-item:not(:first-child){
+    border-left: 1px dashed var(--line);
+  }
+}
 
 .counter-num{
   font-family: 'Fraunces', serif;
@@ -509,10 +532,6 @@ body {
 #counter {
   width: 100%;
   max-width: none;
-}
-.counter-card {
-  width: min(100%, 900px);
-  min-width: 900px;
 }
 [data-lang][hidden] {
   display: none !important;

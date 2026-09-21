@@ -12,11 +12,7 @@
 
 * { box-sizing: border-box; }
 
-html, body{
-  width: 100%;
-  min-width: 0;
-  overflow-x: hidden;
-}
+html, body{ width: 100%; min-width: 0; overflow-x: hidden; }
 
 body{
   margin:0;
@@ -39,11 +35,7 @@ body{
   * { scroll-behavior: auto !important; }
 }
 
-h1,h2,h3{
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  margin: 0;
-}
+h1,h2,h3{ font-family: 'Fraunces', serif; font-weight: 600; margin: 0; }
 
 .eyebrow{
   font-family: 'Space Mono', monospace;
@@ -55,10 +47,45 @@ h1,h2,h3{
 
 a { color: inherit; }
 
+[data-lang][hidden] { display: none !important; }
+
 section{
   width: min(100%, 800px);
   padding: clamp(3.5rem, 8vw, 6rem) clamp(1.2rem, 5vw, 2rem);
   margin-inline: auto;
+}
+
+/* ---------- LANGUAGE SWITCHER ---------- */
+.lang-switch{
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 10;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(51, 50, 74, 0.12);
+}
+
+.lang-switch button{
+  border: none;
+  background: transparent;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+
+.lang-switch button.active{
+  background: linear-gradient(100deg, var(--blue), var(--pink));
+  color: #fff;
 }
 
 /* ---------- HERO ---------- */
@@ -78,9 +105,7 @@ section{
     radial-gradient(circle at 80% 75%, var(--pink-soft), transparent 55%);
 }
 
-.hero > *{
-  animation: heroRise 0.9s ease both;
-}
+.hero > *{ animation: heroRise 0.9s ease both; }
 .hero .eyebrow{ animation-delay: 0s; margin-bottom: 1.2rem; }
 .hero h1{ animation-delay: 0.1s; }
 .hero p{ animation-delay: 0.2s; }
@@ -92,9 +117,7 @@ section{
   to{ opacity: 1; transform: translateY(0); }
 }
 
-@media (prefers-reduced-motion: reduce){
-  .hero > *{ animation: none; }
-}
+@media (prefers-reduced-motion: reduce){ .hero > *{ animation: none; } }
 
 .hero h1{
   font-size: clamp(2rem, 5vw, 3.4rem);
@@ -112,10 +135,7 @@ section{
   font-size: 1.05rem;
 }
 
-.hero-media{
-  width: min(92vw, 420px);
-  margin-top: 2rem;
-}
+.hero-media{ width: min(92vw, 420px); margin-top: 2rem; }
 
 .hero .thread{
   margin-top: 3rem;
@@ -141,16 +161,9 @@ section{
   padding: 1rem 0.6rem;
 }
 
-@media (min-width: 640px){
-  .counter-card{ grid-template-columns: repeat(4, 1fr); }
-}
+@media (min-width: 640px){ .counter-card{ grid-template-columns: repeat(4, 1fr); } }
 
-.counter-item{
-  min-width: 0;
-  text-align: center;
-  padding: 0.6rem 0.4rem;
-}
-
+.counter-item{ min-width: 0; text-align: center; padding: 0.6rem 0.4rem; }
 .counter-item:nth-child(2n){ border-left: 1px dashed var(--line); }
 .counter-item:nth-child(n+3){ border-top: 1px dashed var(--line); }
 
@@ -171,83 +184,91 @@ section{
   line-height: 1.2;
 }
 
-.counter-label{
+.counter-label{ font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
+/* ---------- SECTION HEAD (dipakai era & suara fans) ---------- */
+.section-head{ margin-bottom: 2.5rem; text-align: center; }
+.section-head h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); margin-top: 0.5rem; }
+.section-intro{ text-align:center; color: var(--ink-soft); max-width: 60ch; margin: 0 auto 3rem; }
+
+/* ---------- TIMELINE / ERA ---------- */
+#linimasa{ width: min(100%, 800px); }
+
+.timeline{ position: relative; padding-left: 2rem; }
+
+.timeline::before{
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(var(--blue), var(--pink));
+  border-radius: 2px;
+}
+
+.era{ position: relative; padding: 0 0 3.5rem 2rem; }
+
+.era::before{
+  content: "";
+  position: absolute;
+  left: -2.4rem;
+  top: 0.4rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--pink);
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 2px var(--blue);
+}
+
+.era .year{
   font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
-  margin-top: 0.2rem;
-}
-
-/* ---------- BAB (CHAPTER) ---------- */
-.bab{ position: relative; }
-.bab + .bab{ border-top: 1px dashed var(--line); }
-
-.bab-label{
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--pink);
-  margin-bottom: 0.6rem;
-}
-
-.bab h2{
-  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
-  max-width: 20ch;
-  margin-bottom: 1.4rem;
-}
-
-.bab p{
-  color: var(--ink-soft);
-  margin: 0 0 1.1rem;
-  font-size: 1.02rem;
-}
-
-.bab p a{
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--pink);
-}
-
-.bab p a:hover{ color: var(--pink); }
-
-/* ---------- KUTIPAN / HIGHLIGHT ---------- */
-.kutipan{
-  border-left: 3px solid var(--pink);
-  padding: 0.2rem 0 0.2rem 1.2rem;
-  margin: 1.6rem 0;
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--ink);
-}
-
-/* ---------- FUN FACT ---------- */
-.fun-fact{
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-  background: var(--blue-soft);
-  border-radius: 14px;
-  padding: 0.9rem 1.1rem;
-  margin: 1.4rem 0;
-}
-
-.fun-fact .ff-label{
-  display: block;
-  font-weight: 700;
-  color: var(--ink);
   margin-bottom: 0.3rem;
 }
 
-.fun-fact p{
-  margin: 0;
-  color: var(--ink-soft);
-  font-family: 'Inter', sans-serif;
+.era h3{ font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 0.9rem; max-width: 22ch; }
+.era p{ color: var(--ink-soft); margin-bottom: 1rem; }
+.era p a{ color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--pink); }
+.era p a:hover{ color: var(--pink); }
+
+.members-line{
+  font-family: 'Space Mono', monospace;
   font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 1rem 0 1.4rem;
+  letter-spacing: 0.02em;
 }
 
-/* ---------- PLAYLIST CARD (untuk link playlist tanpa thumbnail) ---------- */
+/* ---------- KUTIPAN ---------- */
+.kutipan{
+  border-left: 3px solid var(--pink);
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  margin: 1.4rem 0;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+/* ---------- MOMEN (tanggal singkat) ---------- */
+.era-moments{ list-style: none; margin: 0.8rem 0 1.2rem; padding: 0; }
+.era-moments li{
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.6rem 0.4rem;
+  border-top: 1px dashed var(--line);
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.era-moments li:first-child{ border-top: none; }
+.era-moments li:hover{ background: var(--blue-soft); }
+.moment-month{ font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--ink-soft); min-width: 92px; flex-shrink: 0; }
+.moment-text{ font-size: 0.92rem; color: var(--ink); }
+
+/* ---------- PLAYLIST CARD ---------- */
 .playlist-card{
   display: flex;
   align-items: center;
@@ -263,61 +284,42 @@ section{
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.playlist-card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 16px 30px rgba(51, 50, 74, 0.16);
-}
+.playlist-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 30px rgba(51, 50, 74, 0.16); }
 
 .playlist-card-icon{
-  width: 46px;
-  height: 46px;
-  flex-shrink: 0;
+  width: 46px; height: 46px; flex-shrink: 0;
   border-radius: 50%;
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-size: 1.2rem;
   box-shadow: 0 4px 12px rgba(51, 50, 74, 0.15);
 }
 
 .playlist-card-body{ flex: 1; min-width: 0; }
+.playlist-card-title{ font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.02rem; }
+.playlist-card-meta{ font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--ink-soft); margin-top: 0.15rem; }
+.playlist-card-arrow{ font-size: 1rem; color: var(--ink-soft); flex-shrink: 0; }
 
-.playlist-card-title{
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 1.02rem;
-}
-
-.playlist-card-meta{
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--ink-soft);
-  margin-top: 0.15rem;
-}
-
-.playlist-card-arrow{
-  font-size: 1rem;
-  color: var(--ink-soft);
-  flex-shrink: 0;
-}
-
-/* ---------- BAB HIGHLIGHT PHOTO (video dengan thumbnail asli) ---------- */
-.bab-highlight{
-  max-width: 420px;
+/* ---------- ERA HIGHLIGHT (foto/video asli, bisa diklik) ---------- */
+.era-highlight{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  max-width: 460px;
   margin: 1.4rem 0;
 }
 
-.bab-highlight a{
+.era-highlight a{
   position: relative;
   display: block;
   border-radius: var(--radius);
   overflow: hidden;
   text-decoration: none;
   box-shadow: 0 10px 26px rgba(51, 50, 74, 0.14);
+  background: linear-gradient(160deg, var(--blue-soft), var(--pink-soft));
 }
 
-.bab-highlight a img{
+.era-highlight a img{
   display: block;
   width: 100%;
   aspect-ratio: 16/9;
@@ -325,148 +327,105 @@ section{
   transition: transform 0.35s ease;
 }
 
-.bab-highlight a:hover img{ transform: scale(1.05); }
+.era-highlight a:hover img{ transform: scale(1.05); }
 
-.bab-highlight a::after{
+.era-highlight a::after{
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(51,50,74,0.6), transparent 55%);
 }
 
-.bab-highlight .play-badge{
+.era-highlight .play-badge{
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
+  width: 52px; height: 52px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
   color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
   box-shadow: 0 6px 16px rgba(51, 50, 74, 0.25);
 }
 
-.bab-highlight a:hover .play-badge{ transform: translate(-50%, -50%) scale(1.08); }
+.era-highlight a:hover .play-badge{ transform: translate(-50%, -50%) scale(1.08); }
 
-.bab-highlight .link-tag{
+.era-highlight .link-tag{
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
+  bottom: 10px; left: 10px; right: 10px;
   font-family: 'Space Mono', monospace;
   font-size: 0.68rem;
   color: #fff;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
-/* ---------- SONG CHAIN (garis perjalanan — Bab 2) ---------- */
-.song-chain{
-  position: relative;
-  padding-left: 2rem;
-  margin: 1.6rem 0;
+/* Instagram embed di dalam era-highlight: biar nggak kegencet ukurannya */
+.era-highlight blockquote.instagram-media{
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
 }
 
-.song-chain::before{
-  content: "";
-  position: absolute;
-  left: 0.4rem;
-  top: 0.6rem;
-  bottom: 0.6rem;
-  width: 2px;
-  background: linear-gradient(var(--blue), var(--pink));
-  border-radius: 2px;
-}
-
-.song-chain-item{
-  position: relative;
-  padding-bottom: 1.4rem;
-}
-
-.song-chain-item:last-child{ padding-bottom: 0; }
-
-.song-chain-item::before{
-  content: "";
-  position: absolute;
-  left: -1.86rem;
-  top: 0.5rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--pink);
-  border: 3px solid var(--cream);
-  box-shadow: 0 0 0 2px var(--blue);
-}
-
-.song-chain-card{
-  display: flex;
-  align-items: center;
+/* ---------- SONG GRID / CHAIN (Real! Project — 4 lagu) ---------- */
+.song-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.9rem;
+  margin: 1.4rem 0;
+  max-width: 480px;
+}
+
+.song-card{
+  display: block;
   text-decoration: none;
   color: var(--ink);
+  border-radius: var(--radius);
+  overflow: hidden;
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 0.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(51, 50, 74, 0.1);
+  transition: transform 0.2s ease;
 }
 
-.song-chain-card:hover{
-  transform: translateX(4px);
-  box-shadow: 0 8px 18px rgba(51, 50, 74, 0.12);
-}
+.song-card:hover{ transform: translateY(-3px); }
 
-.song-chain-card img{
-  width: 84px;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.song-chain-date{
+.song-card img{ display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.song-card .song-card-body{ padding: 0.6rem 0.7rem; }
+.song-card .song-card-num{ font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--pink); }
+.song-card .song-card-title{ font-size: 0.85rem; font-weight: 600; font-family: 'Fraunces', serif; }
+.song-card .song-card-links{ margin-top: 0.35rem; display: flex; gap: 0.6rem; }
+.song-card .song-card-links a{
   font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--ink-soft);
 }
+.song-card .song-card-links a:hover{ color: var(--pink); border-bottom-color: var(--pink); }
 
-.song-chain-title{
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 0.98rem;
-  margin-top: 0.1rem;
-}
-
-/* ---------- CLOSING BAB ---------- */
-.bab-closing{
-  text-align: center;
+/* ---------- CLOSING ---------- */
+.timeline-closing{
   max-width: 60ch;
+  margin: 2rem auto 0;
+  text-align: center;
+  padding-top: 2.5rem;
+  border-top: 1px dashed var(--line);
 }
 
-.bab-closing p{
+.timeline-closing p{
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 1.08rem;
   color: var(--ink-soft);
   line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
-/* ---------- FAN WALL (masonry ala Pinterest) ---------- */
+/* ---------- FAN WALL ---------- */
 #suara-fans{ width: min(100%, 1180px); }
 
-.section-head{ margin-bottom: 3rem; text-align: center; }
-.section-head h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); margin-top: 0.5rem; }
-.section-intro{ text-align:center; color: var(--ink-soft); max-width: 60ch; margin: 0 auto 3rem; }
-
-.wall-grid{
-  column-count: 2;
-  column-gap: 1.1rem;
-}
-
+.wall-grid{ column-count: 2; column-gap: 1.1rem; }
 @media (min-width: 640px){ .wall-grid{ column-count: 3; } }
 @media (min-width: 960px){ .wall-grid{ column-count: 4; } }
 
@@ -483,13 +442,7 @@ section{
   cursor: pointer;
 }
 
-.fan-card .country{
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-}
-
+.fan-card .country{ font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--ink-soft); text-transform: uppercase; }
 .fan-card .message{
   font-size: 0.95rem;
   display: -webkit-box;
@@ -498,13 +451,7 @@ section{
   line-clamp: 3;
   overflow: hidden;
 }
-
-.fan-card .song{
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-  border-top: 1px dashed rgba(51,50,74,0.15);
-  padding-top: 0.6rem;
-}
+.fan-card .song{ font-size: 0.8rem; color: var(--ink-soft); border-top: 1px dashed rgba(51,50,74,0.15); padding-top: 0.6rem; }
 
 .fan-card.theme-blue{ background: #EAF1FF; border-color: #D6E4FF; }
 .fan-card.theme-pink{ background: #FFEEF5; border-color: #FFD9E9; }
@@ -513,27 +460,12 @@ section{
 .fan-card.theme-skyline{ background: #EAF7FF; border-color: #D3EEFF; }
 .fan-card.theme-white{ background: #fff; border-color: var(--line); }
 
-#wall-status{
-  text-align:center;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--ink-soft);
-  margin-top: 1.5rem;
-}
+#wall-status{ text-align:center; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--ink-soft); margin-top: 1.5rem; }
+.wall-hint{ text-align: center; font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.6rem; }
 
 /* ---------- FOOTER ---------- */
-footer{
-  width: 100%;
-  max-width: none;
-  text-align: center;
-  padding: 6vh 6vw 4vh;
-  color: var(--ink-soft);
-}
-
-footer p{
-  max-width: 56ch;
-  margin: 1rem auto 0;
-}
+footer{ width: 100%; max-width: none; text-align: center; padding: 6vh 6vw 4vh; color: var(--ink-soft); }
+footer p{ max-width: 56ch; margin: 1rem auto 0; }
 
 .cta{
   display: inline-block;
@@ -547,13 +479,7 @@ footer p{
   font-size: 0.9rem;
 }
 
-.form-link{
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  color: var(--ink-soft);
-}
+.form-link{ display: inline-block; margin-top: 1rem; font-size: 0.9rem; text-decoration: underline; color: var(--ink-soft); }
 
 .colophon{
   text-align: center;
@@ -564,20 +490,9 @@ footer p{
   opacity: 0.7;
 }
 
-/* ---------- FAN DIALOG (modal pesan) ---------- */
-#fan-dialog {
-  width: min(92vw, 720px);
-  max-height: 88vh;
-  padding: 0;
-  border: none;
-  background: transparent;
-  overflow: visible;
-}
-
-#fan-dialog::backdrop {
-  background: rgba(51, 50, 74, 0.42);
-  backdrop-filter: blur(4px);
-}
+/* ---------- FAN DIALOG ---------- */
+#fan-dialog { width: min(92vw, 720px); max-height: 88vh; padding: 0; border: none; background: transparent; overflow: visible; }
+#fan-dialog::backdrop { background: rgba(51, 50, 74, 0.42); backdrop-filter: blur(4px); }
 
 .fan-paper {
   position: relative;
@@ -708,12 +623,5 @@ footer p{
 }
 
 .dialog-section p { margin: 0; white-space: pre-line; color: var(--ink); }
-
 .dialog-section--quote { border-left-color: var(--pink); background: var(--pink-soft); }
-
-.dialog-section--quote p {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--ink);
-}
+.dialog-section--quote p { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: var(--ink); }

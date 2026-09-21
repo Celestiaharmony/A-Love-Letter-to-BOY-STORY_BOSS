@@ -1,59 +1,7 @@
 const SHEET_JSON_URL =
   "https://script.google.com/macros/s/AKfycbzUmvjDVrrpMGV80TOKYsitKdqABRq7afXfexFci0PgWQpDmBdtO14kXvJoJq1ytOcb0A/exec";
 
-let currentLang = "id";
 let approvedMessages = [];
-
-const statusText = {
-  noneApproved: {
-    id: "Belum ada pesan yang disetujui untuk tampil.",
-    en: "No messages have been approved to show yet.",
-    ko: "아직 공개 승인된 메시지가 없습니다.",
-    zh: "目前还没有获批展示的留言。"
-  },
-
-  shown: {
-    id: count => `${count} pesan ditampilkan.`,
-    en: count => `${count} messages shown.`,
-    ko: count => `${count}개의 메시지가 표시되었습니다.`,
-    zh: count => `已显示 ${count} 条留言。`
-  },
-
-  error: {
-    id: "Gagal memuat data. Periksa kembali URL Apps Script.",
-    en: "Failed to load data. Please check the Apps Script URL.",
-    ko: "데이터를 불러오지 못했습니다. Apps Script URL을 확인해주세요.",
-    zh: "数据加载失败，请检查 Apps Script URL。"
-  }
-};
-
-function setLang(lang) {
-  currentLang = lang;
-
-  document.querySelectorAll("[data-lang]").forEach(element => {
-    element.hidden = element.dataset.lang !== lang;
-  });
-
-  document.querySelectorAll("[data-setlang]").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.setlang === lang
-    );
-  });
-
-  document.documentElement.lang = lang;
-  updateWallStatus();
-}
-
-function initLangSwitch() {
-  document.querySelectorAll("[data-setlang]").forEach(button => {
-    button.addEventListener("click", () => {
-      setLang(button.dataset.setlang);
-    });
-  });
-
-  setLang("id");
-}
 
 function updateYearsCounter() {
   const startYear = 2018;
@@ -65,36 +13,17 @@ function updateYearsCounter() {
   if (yearsElement) {
     yearsElement.textContent = `${now - startYear}+`;
   }
-
-  document.querySelectorAll(".hero-years").forEach(element => {
-    element.textContent = now - startYear;
-  });
 }
 
-function updateStoryCounters(rows) {
+function updateStoryCounter(rows) {
   const storiesElement =
     document.getElementById("count-stories");
-
-  const countriesElement =
-    document.getElementById("count-countries");
 
   if (storiesElement) {
     storiesElement.textContent = rows.length;
   }
-
-  const countries = new Set(
-    rows
-      .map(row =>
-        String(row["Country of origin"] || "")
-          .trim()
-          .toLowerCase()
-      )
-      .filter(Boolean)
-  );
-
-  if (countriesElement) {
-    countriesElement.textContent = countries.size;
-  }
+  // Angka "Negara" diisi manual langsung di index.html
+  // (elemen id="count-countries"), tidak dihitung otomatis.
 }
 
 function updateWallStatus() {
@@ -103,17 +32,10 @@ function updateWallStatus() {
 
   if (!statusElement) return;
 
-  if (approvedMessages.length === 0) {
-    statusElement.textContent =
-      statusText.noneApproved[currentLang];
-
-    return;
-  }
-
   statusElement.textContent =
-    statusText.shown[currentLang](
-      approvedMessages.length
-    );
+    approvedMessages.length === 0
+      ? "Belum ada pesan yang disetujui untuk tampil."
+      : `${approvedMessages.length} pesan ditampilkan.`;
 }
 
 function openFanDialog(row) {
@@ -175,7 +97,7 @@ function openFanDialog(row) {
       document.createElement("img");
 
     image.className = "dialog-photo";
-    image.src = row["Upload photo"];
+    image.src = normalizeDrivePhotoUrl(row["Upload photo"]);
     image.alt =
       `Photo from ${row["Nickname"] || "fan"}`;
 
@@ -188,9 +110,7 @@ function openFanDialog(row) {
   addDialogSection(
     content,
     "How they first knew BOY STORY",
-    row[
-      "When and how did you first get to know BOY STORY?"
-    ],
+    row["When and how did you first get to know BOY STORY?"],
     "✨"
   );
 
@@ -235,6 +155,22 @@ function openFanDialog(row) {
   }
 }
 
+function normalizeDrivePhotoUrl(url) {
+  if (!url) return url;
+
+  const trimmed = String(url).trim();
+
+  const idMatch =
+    trimmed.match(/\/d\/([a-zA-Z0-9_-]+)/) ||
+    trimmed.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+  if (idMatch && idMatch[1]) {
+    return `https://lh3.googleusercontent.com/d/${idMatch[1]}`;
+  }
+
+  return trimmed;
+}
+
 function addDialogDivider(container) {
   const divider =
     document.createElement("div");
@@ -256,11 +192,7 @@ function addDialogSection(container, title, text, icon, variant) {
   const heading =
     document.createElement("h4");
 
-  if (icon) {
-    heading.textContent = `${icon} ${title}`;
-  } else {
-    heading.textContent = title;
-  }
+  heading.textContent = icon ? `${icon} ${title}` : title;
 
   const paragraph =
     document.createElement("p");
@@ -304,9 +236,7 @@ async function loadFanWall() {
       await fetch(SHEET_JSON_URL);
 
     if (!response.ok) {
-      throw new Error(
-        `HTTP error: ${response.status}`
-      );
+      throw new Error(`HTTP error: ${response.status}`);
     }
 
     const rows = await response.json();
@@ -316,16 +246,14 @@ async function loadFanWall() {
     }
 
     approvedMessages = rows;
+    updateStoryCounter(approvedMessages);
 
-    updateStoryCounters(approvedMessages);
+    grid.innerHTML = "";
 
     if (approvedMessages.length === 0) {
-      grid.innerHTML = "";
       updateWallStatus();
       return;
     }
-
-    grid.innerHTML = "";
 
     const cardThemes = [
       "theme-blue",
@@ -355,8 +283,7 @@ async function loadFanWall() {
 
       country.className = "country";
       country.textContent =
-        row["Country of origin"] ||
-        "Unknown country";
+        row["Country of origin"] || "Unknown country";
 
       const member =
         document.createElement("div");
@@ -383,24 +310,13 @@ async function loadFanWall() {
           ? `Favorite moment/song: ${row["Favorite moment or song"]}`
           : "";
 
-      card.append(
-        nickname,
-        country,
-        member,
-        message,
-        favorite
-      );
+      card.append(nickname, country, member, message, favorite);
 
       card.setAttribute("tabindex", "0");
       card.setAttribute("role", "button");
-      card.setAttribute(
-        "aria-label",
-        "Buka pesan lengkap"
-      );
+      card.setAttribute("aria-label", "Buka pesan lengkap");
 
-      card.addEventListener("click", () => {
-        openFanDialog(row);
-      });
+      card.addEventListener("click", () => openFanDialog(row));
 
       card.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
@@ -422,13 +338,12 @@ async function loadFanWall() {
 
     if (statusElement) {
       statusElement.textContent =
-        statusText.error[currentLang];
+        "Gagal memuat data. Periksa kembali URL Apps Script.";
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initLangSwitch();
   initFanDialog();
   loadFanWall();
 });

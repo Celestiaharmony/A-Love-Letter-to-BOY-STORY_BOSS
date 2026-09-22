@@ -367,6 +367,24 @@ section{
   width: 100% !important;
 }
 
+/* ---------- IG EMBED GROUP (foto Instagram, ukuran natural, tidak terpotong) ---------- */
+.ig-embed-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+
+.ig-embed-group blockquote.instagram-media{
+  margin: 0 !important;
+  min-width: 280px !important;
+  max-width: 340px !important;
+  width: 100% !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(51, 50, 74, 0.14) !important;
+}
+
 /* ---------- SONG GRID / CHAIN (Real! Project — 4 lagu) ---------- */
 .song-grid{
   display: grid;
@@ -403,6 +421,21 @@ section{
   border-bottom: 1px dashed var(--ink-soft);
 }
 .song-card .song-card-links a:hover{ color: var(--pink); border-bottom-color: var(--pink); }
+
+.album-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--ink-soft);
+  padding-bottom: 2px;
+}
+
+.album-link:hover{ color: var(--pink); border-bottom-color: var(--pink); }
 
 /* ---------- CLOSING ---------- */
 .timeline-closing{
